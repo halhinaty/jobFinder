@@ -19,3 +19,25 @@
   border-left-width: 1px;
   border-right-width: 1px;
 }
+
+.register-menu-container #menu-container {
+  display: none;
+}
+
+.register-menu-container:hover #menu-container {
+  display: flex;
+}
+
+.register-menu-container:hover #menu-container:hover {
+  display: flex;
+  color: #ddd;
+}
+
+.css-81lo6p {
+  overflow: auto;
+}
+
+
+/* .register-menu-container:hover .menu-container {
+display: flex;
+} */

@@ -1,4 +1,4 @@
-import { Avatar, Box } from '@mui/material'
+import { Avatar, Box, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 import Footer from '../component/Footer'
 import Navbar from '../component/Navbar'
 import LockOpenIcon from '@mui/icons-material/LockOpen';
@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux'
 import { userSignUpAction } from '../redux/actions/userAction'
+import { useState } from 'react';
 
 
 const validationSchema = yup.object({
@@ -29,9 +30,15 @@ const validationSchema = yup.object({
         .required('Password is required'),
 });
 
+const VIEW_OPTIONS = {
+    JOB_SEEKER: 1,
+    CORPORATE: 0
+}
+
 
 
 const Register = () => {
+    const [view, setView] = useState(null);
     const dispatch = useDispatch();
 
 
@@ -41,7 +48,7 @@ const Register = () => {
             lastName: '',
             email: '',
             password: '',
-            role: 1
+            role: view === VIEW_OPTIONS.JOB_SEEKER
         },
         validationSchema: validationSchema,
         onSubmit: (values, actions) => {
@@ -62,7 +69,7 @@ const Register = () => {
                         <Avatar sx={{ m: 1, bgcolor: "primary.main", mb: 3 }}>
                             <LockOpenIcon />
                         </Avatar>
-                        <TextField
+                        { view === VIEW_OPTIONS.JOB_SEEKER ? <TextField
                             sx={{
                                 mb: 3,
                                 "& .MuiInputBase-root": {
@@ -84,7 +91,7 @@ const Register = () => {
                             onBlur={formik.handleBlur}
                             error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                             helperText={formik.touched.firstName && formik.errors.firstName}
-                        />
+                        /> : null }
                         <TextField
                             sx={{
                                 mb: 3,
@@ -154,6 +161,99 @@ const Register = () => {
                             error={formik.touched.password && Boolean(formik.errors.password)}
                             helperText={formik.touched.password && formik.errors.password}
                         />
+                        { view === VIEW_OPTIONS.CORPORATE ? (
+                            <>
+                            <TextField
+                            sx={{
+                                mb: 3,
+                                "& .MuiInputBase-root": {
+                                    color: 'text.secondary'
+                                },
+                                fieldset: { borderColor: "rgb(231, 235, 240)" }
+                            }}
+                            fullWidth
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Password"
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.password && Boolean(formik.errors.password)}
+                            helperText={formik.touched.password && formik.errors.password}
+                        />
+                        <TextField
+                            sx={{
+                                mb: 3,
+                                "& .MuiInputBase-root": {
+                                    color: 'text.secondary'
+                                },
+                                fieldset: { borderColor: "rgb(231, 235, 240)" }
+                            }}
+                            fullWidth
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Password"
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.password && Boolean(formik.errors.password)}
+                            helperText={formik.touched.password && formik.errors.password}
+                        />
+                        <TextField
+                            sx={{
+                                mb: 3,
+                                "& .MuiInputBase-root": {
+                                    color: 'text.secondary'
+                                },
+                                fieldset: { borderColor: "rgb(231, 235, 240)" }
+                            }}
+                            fullWidth
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Password"
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.password && Boolean(formik.errors.password)}
+                            helperText={formik.touched.password && formik.errors.password}
+                        />
+                        </>
+                        ) : null}
+
+                        <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', width: '100%', gap: 16, marginBottom: 12 }}>
+                            <div style={{ paddingInlineEnd: 8 }}>
+                                <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                            </div>
+                            <RadioGroup
+                                aria-labelledby="demo-radio-buttons-group-label"
+                                defaultValue="female"
+                                name="radio-buttons-group"
+                            >
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <FormControlLabel value="as a job seeker" control={<Radio />} onClick={() => {
+                                        setView(VIEW_OPTIONS.JOB_SEEKER);
+                                    }} label="As a Job Seeker" />
+                                    <FormControlLabel value="as a corporate" control={<Radio />} onClick={() => {
+                                        setView(VIEW_OPTIONS.CORPORATE);
+                                    }} label="As a Corporate" />
+                                </div>
+                            </RadioGroup>
+                        </div>
 
                         <Button fullWidth variant="contained" type='submit' >Register</Button>
                     </Box>

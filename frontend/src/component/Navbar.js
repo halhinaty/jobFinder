@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userLogoutAction } from '../redux/actions/userAction';
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { toggleActionTheme } from '../redux/actions/themeAction';
+import '../App.css';
 
 
 const pages = ['Home', 'Log In'];
@@ -151,7 +152,7 @@ const Navbar = () => {
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}>
-                            <Link to="/register" style={{ color: 'white', textDecoration: "none" }}>
+                            <Link className='register-menu-container' to="/register" style={{ color: 'white', textDecoration: "none", position: 'relative' }}>
                                 Register
                             </Link>
                         </Button>
