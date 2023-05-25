@@ -20,6 +20,29 @@ exports.signup = async (req, res, next) => {
     }
 }
 
+exports.updateUserInfo = async (req, res, next) => {
+    try {
+        var conditions = {
+            _id : req.body?._id
+        }
+
+        const user = await User.findOneAndUpdate(conditions, req.body, function(error,result){
+            if(error){
+              // handle error
+              console.log(error);
+            }else{
+              console.log(result);
+              res.status(200).json({
+                success: true,
+                user
+            })
+            }
+          });
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 exports.signin = async (req, res, next) => {
 

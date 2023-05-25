@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { signup, signin, logout, userProfile } = require('../controllers/authController');
+const { signup, signin, logout, userProfile, updateUserInfo } = require('../controllers/authController');
 const { isAuthenticated } = require('../middleware/auth');
 
 
 //auth routes
 // /api/signup
 router.post('/signup', signup);
+// /api/updateUserById
+router.post('/updateUserById', updateUserInfo);
 // /api/signin
 router.post('/signin', signin);
 // /api/logout

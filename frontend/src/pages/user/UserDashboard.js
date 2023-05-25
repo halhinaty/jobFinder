@@ -6,6 +6,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import WorkIcon from '@mui/icons-material/Work';
 import { useSelector } from 'react-redux'
 import moment from 'moment'
+import Navbar from '../../component/Navbar';
 
 const UserDashboard = () => {
     const { user } = useSelector(state => state.userProfile);
@@ -37,6 +38,7 @@ const UserDashboard = () => {
 
                 </Stack>
             </Box>
+
 
         </>
     )

@@ -80,7 +80,57 @@ const userSchema = new mongoose.Schema({
     role: {
         type: Number,
         default: 0
-    }
+    },
+
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+
+    socialsecuritynumber: {
+        type: String,
+        default: ''
+    },
+    
+    workfield: {
+        type: String,
+        default: ''
+    },
+    
+    yearsOfExperience: {
+        type: String,
+        default: ''
+    },
+    
+    address: {
+        type: String,
+        default: ''
+    },
+    
+    bio: {
+        type: String,
+        default: ''
+    },
+    
+    nameOfCorporation: {
+        type: String,
+        default: ''
+    },
+    
+    mobilenumber: {
+        type: String,
+        default: ''
+    },
+    
+    workfields: {
+        type: String,
+        default: ''
+    },
+    
+    bioc: {
+        type: String,
+        default: ''
+    },
 
 }, { timestamps: true })
 

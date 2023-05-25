@@ -87,22 +87,19 @@ const Home = () => {
                             {
                                 loading ?
                                     <LoadingBox /> :
-                                    jobs && jobs.length === 0 ?
-                                        <>
-                                            <Box
-                                                sx={{
-                                                    minHeight: '350px',
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center'
-                                                }}>
+                                    jobs?.length === 0 ?
+                                        <Box
+                                            sx={{
+                                                minHeight: '350px',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center'
+                                            }}>
 
-                                                <h2>No result found!</h2>
-                                            </Box>
-                                        </> :
-
-
-                                        jobs && jobs.map((job, i) => (
+                                            <h2>No result found!</h2>
+                                        </Box>
+                                        :
+                                        jobs?.map((job, i) => (
                                             <CardElement
                                                 key={i}
                                                 id={job._id}

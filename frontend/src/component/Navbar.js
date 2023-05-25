@@ -81,7 +81,7 @@ const Navbar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        JOB PORTAL
+                        Khebrat
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -137,7 +137,7 @@ const Navbar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        JOB PORTAL
+                        Khebrat
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {/* menu desktop */}
@@ -200,10 +200,10 @@ const Navbar = () => {
                         >
 
 
-                            <MenuItem onClick={()=>navigate('admin/dashboard')}>
+                            <MenuItem onClick={() => navigate('admin/dashboard')}>
                                 <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.secondary.main }}>Admin Dashboard</Link></Typography>
                             </MenuItem>
-                            <MenuItem onClick={()=>navigate('user/dashboard')}>
+                            <MenuItem onClick={() => navigate('user/dashboard')}>
                                 <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.secondary.main }}>User Dashboard</Link></Typography>
                             </MenuItem>
 

@@ -62,6 +62,28 @@ export const userSignUpAction = (user) => async (dispatch) => {
     }
 }
 
+// update user info
+export const updateUserById = (user) => async (dispatch) => {
+    // dispatch({ type: USER_SIGNUP_REQUEST });
+    try {
+        if (user?._id) {
+            const { data } = await axios.post("/api/updateUserById", user);
+        }
+
+        // dispatch({
+        //     type: USER_SIGNUP_SUCCESS,
+        //     payload: data
+        // });
+        toast.success("Register Successfully!");
+    } catch (error) {
+        // dispatch({
+        //     type: USER_SIGNUP_FAIL,
+        //     payload: error.response.data.error
+        // });
+        toast.error(error.response.data.error);
+    }
+}
+
 //log out action
 export const userLogoutAction = () => async (dispatch) => {
     dispatch({ type: USER_LOGOUT_REQUEST });
